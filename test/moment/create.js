@@ -281,6 +281,41 @@ exports.create = {
         test.done();
     },
 
+    "string with format - thai years" : function(test) {
+        test.expect(4);
+        test.equal(moment('82', 'BB').format('YYYY'), '2039', '(25)82 > 2039');
+        test.equal(moment('83', 'BB').format('YYYY'), '2040', '(25)83 > 2040');
+        test.equal(moment('84', 'BB').format('YYYY'), '1941', '(24)84 > 1941');
+        test.equal(moment('85', 'BB').format('YYYY'), '1942', '(24)85 > 1942');
+        test.done();
+    },
+
+    "string with format - permissive years" : function(test) {
+        test.expect(8);
+        test.equal(moment('67', '**YY').format('YYYY'), '2067', '67 > 2067');
+        test.equal(moment('68', '**YY').format('YYYY'), '2068', '68 > 2068');
+        test.equal(moment('69', '**YY').format('YYYY'), '1969', '69 > 1969');
+        test.equal(moment('70', '**YY').format('YYYY'), '1970', '70 > 1970');
+        test.equal(moment('1967', '**YY').format('YYYY'), '1967', '1967 > 1967');
+        test.equal(moment('1968', '**YY').format('YYYY'), '1968', '1968 > 1968');
+        test.equal(moment('2069', '**YY').format('YYYY'), '2069', '2069 > 2069');
+        test.equal(moment('2070', '**YY').format('YYYY'), '2070', '2070 > 2070');
+        test.done();
+    },
+
+    "string with format - permissive thai years" : function(test) {
+        test.expect(8);
+        test.equal(moment('67', '**BB').format('YYYY'), '2024', '(25)67 > 2024');
+        test.equal(moment('68', '**BB').format('YYYY'), '2025', '(25)68 > 2025');
+        test.equal(moment('19', '**BB').format('YYYY'), '2019', '(20)19 > 2019');
+        test.equal(moment('20', '**BB').format('YYYY'), '1977', '(25)20 > 1977');
+        test.equal(moment('1967', '**BB').format('YYYY'), '1967', '1967 > 1967');
+        test.equal(moment('1968', '**BB').format('YYYY'), '1968', '1968 > 1968');
+        test.equal(moment('2500', '**BB').format('YYYY'), '1957', '2500 > 1957');
+        test.equal(moment('2556', '**BB').format('YYYY'), '2013', '2556 > 2013');
+        test.done();
+    },
+
     "implicit cloning" : function(test) {
         test.expect(2);
         var momentA = moment([2011, 10, 10]);
