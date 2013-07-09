@@ -875,18 +875,16 @@
                     tempConfig._f = config._f.replace('**BB', 'BB');
                     makeDateFromStringAndFormat(tempConfig);
                     tempMoment    = new Moment(tempConfig);
-                    console.log('BB',tempMoment.format('DD/MM/YYYY'),tempMoment)
+
                     if (!tempMoment.isValid() || tempMoment.year() < 1997) {
                         tempConfig = extend({}, config);
                         tempConfig._f = config._f.replace('**BB', 'YY');
                         makeDateFromStringAndFormat(tempConfig);
                         tempMoment    = new Moment(tempConfig);
-                        console.log('YY',tempMoment.format('DD/MM/YYYY'),tempMoment)
                     }
                 }
 
                 extend(config, tempMoment);
-                console.log('return',config)
                 return true;
             }
 
