@@ -307,8 +307,8 @@ exports.create = {
         test.expect(8);
         test.equal(moment('67', '**BB').format('YYYY'), '2024', '(25)67 > 2024');
         test.equal(moment('68', '**BB').format('YYYY'), '2025', '(25)68 > 2025');
-        test.equal(moment('19', '**BB').format('YYYY'), '2019', '(20)19 > 2019');
-        test.equal(moment('20', '**BB').format('YYYY'), '1977', '(25)20 > 1977');
+        test.equal(moment('39', '**BB').format('YYYY'), '2039', '(20)39 > 2039');
+        test.equal(moment('40', '**BB').format('YYYY'), '1997', '(25)40 > 1997');
         test.equal(moment('1967', '**BB').format('YYYY'), '1967', '1967 > 1967');
         test.equal(moment('1968', '**BB').format('YYYY'), '1968', '1968 > 1968');
         test.equal(moment('2500', '**BB').format('YYYY'), '1957', '2500 > 1957');
